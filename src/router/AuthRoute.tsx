@@ -6,8 +6,7 @@ export default function AuthRoute() {
   return (
     <Routes>
       <Route element={<AuthLayout />}>
-        <Route path="login" element={<Signin />} />
-        <Route path="forgot-password" element={<div>forgot-password</div>} />
+        <Route path="signin" element={<Signin />} />
         <Route index element={<Signin />} />
       </Route>
       <Route path="*" element={<div>Error</div>} />

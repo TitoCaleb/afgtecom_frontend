@@ -1,13 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Alert, Button, Form, Input } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import StyledInput, {
-  Container,
-  ForgotPassword,
-  FormContent,
-  Label,
-  Title,
-} from "./style";
+import StyledInput, { Container, FormContent, Label, Title } from "./style";
 
 /* import StyledInput from "./components/styledInput";
 import Alertas from "../../../Components/Alertas"; */
@@ -15,7 +9,6 @@ import Alertas from "../../../Components/Alertas"; */
 type Props = {
   onFinish: (values: any) => void;
   onFinishFailed: (errorInfo: any) => void;
-  navigate: (path: string) => void;
   errorLogin: boolean;
   isLoading: boolean;
 };
@@ -30,7 +23,6 @@ const validateMessages = {
 export default function Signin({
   onFinish,
   onFinishFailed,
-  navigate,
   /* errorLogin, */
   isLoading,
 }: Props) {
@@ -71,6 +63,8 @@ export default function Signin({
               rules={[
                 {
                   required: true,
+                  type: "email",
+                  message: "Debe ingresar un correo",
                 },
               ]}
             >
@@ -79,6 +73,7 @@ export default function Signin({
                 style={{ height: 40, width: "100%" }}
                 allowClear
                 prefix={<UserOutlined />}
+                type="email"
               />
             </Form.Item>
           </StyledInput>

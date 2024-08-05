@@ -1,6 +1,9 @@
-const token = import.meta.env.VITE_TOKEN;
+import * as AuthHelpers from "../utils/AuthHelpers";
 
-export function UseToken() {
+const token = import.meta.env.VITE_TOKEN;
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
+export function useToken() {
   const getToken = async () => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -10,16 +13,16 @@ export function UseToken() {
     const signal = controller.signal;
 
     try {
-      const response = await fetch(
-        "http://localhost:3000/security/generate_token",
-        {
-          method: "POST",
-          headers,
-          signal,
-        }
-      );
-      const data = await response.json();
-      console.log(data);
+      const response = await fetch(`${baseUrl}/security/generate_token`, {
+        method: "POST",
+        headers,
+        signal,
+      });
+      if (!response.ok) {
+        throw new Error("There was a problem with your fetch operation");
+      }
+      const { token } = await response.json();
+      AuthHelpers.setAuth(token, "token");
     } catch (error) {
       console.error("There was a problem with your fetch operation:", error);
     }
