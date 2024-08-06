@@ -2,19 +2,13 @@ import { Avatar, Dropdown, Layout } from "antd";
 import { useContext } from "react";
 import { UserContext } from "../../context/userContext";
 import { AvatarName, Avatarcontainer } from "../styles";
-import {
-  LogoutOutlined,
-  SettingOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { LogoutOutlined, SettingOutlined } from "@ant-design/icons";
 import { ItemType } from "antd/es/menu/interface";
 import { useFetch } from "../../hooks/useFetch";
 import { removeAuth } from "../../utils/AuthHelpers";
 import { useNavigate } from "react-router-dom";
 
-type Props = {};
-
-function Header({}: Props) {
+const Header = () => {
   const { Header } = Layout;
   const navigate = useNavigate();
   const { user, setUserContext } = useContext(UserContext);
@@ -85,6 +79,6 @@ function Header({}: Props) {
       </Dropdown>
     </Header>
   );
-}
+};
 
 export default Header;
