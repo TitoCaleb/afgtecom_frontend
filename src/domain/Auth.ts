@@ -2,8 +2,9 @@ export class Auth {
   email: string;
   password: string;
 
-  constructor(email: string, password: string) {
-    this.email = email;
-    this.password = password;
+  constructor(data: Partial<Auth>) {
+    if (data) {
+      Object.assign(this, data);
+    }
   }
 }

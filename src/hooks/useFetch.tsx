@@ -23,7 +23,11 @@ export const useFetch = () => {
       });
 
       if (!response.ok) {
-        setError("Network response was not ok");
+        if (response.status === 401) {
+          setError("UNAUTHORIZED");
+          throw new Error("UNAUTHORIZED");
+        }
+        setError(response);
         throw new Error("Network response was not ok");
       }
 

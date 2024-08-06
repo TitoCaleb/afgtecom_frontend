@@ -1,15 +1,11 @@
 /* eslint-disable react/prop-types */
-import { Alert, Button, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import StyledInput, { Container, FormContent, Label, Title } from "./style";
-
-/* import StyledInput from "./components/styledInput";
-import Alertas from "../../../Components/Alertas"; */
 
 type Props = {
   onFinish: (values: any) => void;
   onFinishFailed: (errorInfo: any) => void;
-  errorLogin: boolean;
   isLoading: boolean;
 };
 
@@ -20,30 +16,10 @@ const validateMessages = {
   },
 };
 
-export default function Signin({
-  onFinish,
-  onFinishFailed,
-  /* errorLogin, */
-  isLoading,
-}: Props) {
+export default function Signin({ onFinish, onFinishFailed, isLoading }: Props) {
   return (
     <Container>
       <Title>Iniciar Sesión</Title>
-      {/* <Alertas bgColor="#DC4446" textColor="#d4d4d4">
-        {errorLogin && (
-          <Alert
-            message={
-              <ErrorMessage>
-                El <strong>usuario</strong> o la <strong>contraseña</strong> son
-                incorrectos.
-              </ErrorMessage>
-            }
-            closable
-            type="error"
-            style={{ width: "100%", height: 60 }}
-          />
-        )}
-      </Alertas> */}
       <Form
         name="login"
         layout="vertical"

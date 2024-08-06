@@ -6,10 +6,12 @@ import { Auth } from "../../domain/Auth";
 import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 import { getAuth, setAuth } from "../../utils/AuthHelpers";
+import { App } from "antd";
 
 const index = () => {
   const { getToken } = useToken();
   const { data, isLoading, error, postData } = useFetch();
+  const { notification } = App.useApp();
   const { setUserContext } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -20,6 +22,15 @@ const index = () => {
   const onFinishFailed = (errorInfo: string) => {
     console.log("Failed:", errorInfo);
   };
+
+  useEffect(() => {
+    if (error) {
+      notification.error({
+        message: `${error.message}`,
+        description: "Error al iniciar sesión, intente de nuevo",
+      });
+    }
+  }, [error]);
 
   useEffect(() => {
     if (data) {
@@ -43,7 +54,6 @@ const index = () => {
     <Signin
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
-      errorLogin={false}
       isLoading={isLoading}
     />
   );

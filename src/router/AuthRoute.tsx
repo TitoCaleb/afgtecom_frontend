@@ -9,7 +9,6 @@ export default function AuthRoute() {
         <Route path="signin" element={<Signin />} />
         <Route index element={<Signin />} />
       </Route>
-      <Route path="*" element={<div>Error</div>} />
     </Routes>
   );
 }

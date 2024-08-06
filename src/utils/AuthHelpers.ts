@@ -32,12 +32,12 @@ const setAuth = (auth: string, NAME_KEY: string) => {
 };
 
 const removeAuth = (NAME_KEY: string) => {
-  if (!sessionStorage) {
+  if (!localStorage) {
     return;
   }
 
   try {
-    sessionStorage.removeItem(NAME_KEY);
+    localStorage.removeItem(NAME_KEY);
   } catch (error) {
     console.error("AUTH LOCAL STORAGE REMOVE ERROR", error);
   }
