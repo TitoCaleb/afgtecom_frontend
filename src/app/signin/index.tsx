@@ -1,16 +1,17 @@
 import React, { useContext, useEffect } from "react";
 import Signin from "../../view/signin";
 import { useToken } from "../../hooks/useToken";
-import { useFetch } from "../../hooks/useFetch";
+import { usePost } from "../../hooks/usePost";
 import { Auth } from "../../domain/Auth";
 import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 import { getAuth, setAuth } from "../../utils/AuthHelpers";
 import { App } from "antd";
+import { User } from "../../domain/User";
 
 const index = () => {
   const { getToken } = useToken();
-  const { data, isLoading, error, postData } = useFetch();
+  const { data, isLoading, error, postData } = usePost<User>();
   const { notification } = App.useApp();
   const { setUserContext } = useContext(UserContext);
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ const index = () => {
   useEffect(() => {
     if (data) {
       setUserContext(data);
-      setAuth(data, "user");
+      setAuth<User>(data, "user");
       navigate("/dashboard");
     }
   }, [data]);

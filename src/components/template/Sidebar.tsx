@@ -20,17 +20,7 @@ export default function Sidebar() {
     {
       key: "2",
       icon: <UserOutlined />,
-      label: "Usuarios",
-      children: [
-        {
-          key: "2.1",
-          label: <NavLink to={"lista-usuarios"}>Lista de usuarios</NavLink>,
-        },
-        {
-          key: "2.2",
-          label: <NavLink to={"nuevos-usuarios"}>Crear Usuario</NavLink>,
-        },
-      ],
+      label: <NavLink to={"users"}>Usuarios</NavLink>,
     },
     {
       key: "3",

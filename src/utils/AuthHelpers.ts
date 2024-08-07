@@ -18,13 +18,13 @@ const getAuth = (NAME_KEY: string) => {
   }
 };
 
-const setAuth = (auth: string, NAME_KEY: string) => {
+const setAuth = <T>(data: T, NAME_KEY: string) => {
   if (!localStorage) {
     return;
   }
 
   try {
-    const value = JSON.stringify(auth);
+    const value = JSON.stringify(data);
     localStorage.setItem(NAME_KEY, value);
   } catch (error) {
     console.error("AUTH LOCAL STORAGE SAVE ERROR", error);

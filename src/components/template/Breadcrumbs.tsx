@@ -5,12 +5,7 @@ import { HomeOutlined } from "@ant-design/icons";
 const breadcrumbNameMap = {
   "/dashboard": <HomeOutlined />,
   "/dashboard/services": "Servicios",
-  "/dashboard/servicios/linea": "Linea",
-  "/dashboard/servicios/marca": "Marca",
-  "/dashboard/nuevos-usuarios": "Nuevo Usuario",
-  "/dashboard/editar-usuarios": "Editar Usuario",
-  "/dashboard/lista-usuarios": "Lista Usuarios",
-  "/dashboard/productos": "Productos",
+  "/dashboard/users": "Usuarios",
 };
 
 function Breadcrumbs() {

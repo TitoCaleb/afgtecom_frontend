@@ -13,15 +13,15 @@ export class User {
 
   address: string;
 
-  documentTypeId: string;
+  documentType: string;
 
   documentNumber: string;
 
   birthdate: Date;
 
-  civilStatusId: string;
+  civilStatus: string;
 
-  rolId: string;
+  rol: string;
 
   email: string;
 

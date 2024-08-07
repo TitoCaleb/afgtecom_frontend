@@ -10,7 +10,7 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        {user ? (
+        {true ? (
           <>
             <Route path="dashboard/*" element={<PrivateRoute />} />
             <Route index element={<Navigate to={"/dashboard/inicio"} />} />

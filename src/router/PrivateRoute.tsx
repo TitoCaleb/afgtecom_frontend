@@ -6,11 +6,20 @@ import { lazy } from "react";
 
 export default function PrivateRoute() {
   const Services = lazy(() => import("../app/services"));
+  const Users = lazy(() => import("../app/users"));
 
   return (
     <Routes>
       <Route element={<PrivateLayout />}>
         <Route path="/" element={<Init />} />
+        <Route
+          path="users"
+          element={
+            <LoadingPage>
+              <Users />
+            </LoadingPage>
+          }
+        />
         <Route
           path="services"
           element={

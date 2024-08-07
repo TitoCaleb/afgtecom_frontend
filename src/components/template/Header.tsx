@@ -4,7 +4,7 @@ import { UserContext } from "../../context/userContext";
 import { AvatarName, Avatarcontainer } from "../styles";
 import { LogoutOutlined, SettingOutlined } from "@ant-design/icons";
 import { ItemType } from "antd/es/menu/interface";
-import { useFetch } from "../../hooks/useFetch";
+import { useGet } from "../../hooks/useGet";
 import { removeAuth } from "../../utils/AuthHelpers";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const Header = () => {
   const { Header } = Layout;
   const navigate = useNavigate();
   const { user, setUserContext } = useContext(UserContext);
-  const { getData } = useFetch();
+  const { getData } = useGet();
 
   const items: ItemType[] = [
     {
